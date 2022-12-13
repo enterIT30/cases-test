@@ -71,9 +71,12 @@
   border-radius: 20px;
   text-decoration: none;
   overflow: hidden;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255))), url(../img/bureau/slider/bureau-slider.jpg) no-repeat center/105%;
+  background: -o-linear-gradient(rgb(255, 255, 255)), url(../img/bureau/slider/bureau-slider.jpg) no-repeat center/105%;
+  background: linear-gradient(rgb(255, 255, 255)), url(../img/bureau/slider/bureau-slider.jpg) no-repeat center/105%;
+  -webkit-transition: all 0.8s ease 0s;
+  -o-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
 }
 
 .slider-card__counter {
@@ -85,6 +88,12 @@
   color: #383B41;
 }
 
+.slider-card__info {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
 .slider-card__desc {
   font-weight: 500;
   font-size: 16px;
@@ -92,41 +101,43 @@
   color: #A5ADBB;
 }
 
-.slider-card__hover {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  width: 100%;
-  height: 100%;
-  background: url(../img/bureau/slider/bureau-slider.jpg) no-repeat center/cover;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 0;
-}
-
-.slider-card__hover:hover {
-  -webkit-transform: scale(1.03);
-      -ms-transform: scale(1.03);
-          transform: scale(1.03);
-}
-
 .slider-card__more {
   position: absolute;
   left: 50%;
   bottom: 56px;
+  z-index: 10;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   opacity: 0;
-  -webkit-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  visibility: hidden;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transition-property: opacity, visibility;
+  -o-transition-property: opacity, visibility;
+  transition-property: opacity, visibility;
+}
+
+.slider-card:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.1))), url(../img/bureau/slider/bureau-slider.jpg) no-repeat center/108%;
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.1)), url(../img/bureau/slider/bureau-slider.jpg) no-repeat center/108%;
+  background: linear-gradient(rgba(255, 255, 255, 0.1)), url(../img/bureau/slider/bureau-slider.jpg) no-repeat center/108%;
+  -webkit-transition: all 0.8s ease 0s;
+  -o-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
 }
 
 .slider-card:hover .slider-card__hover,
 .slider-card:hover .slider-card__more {
   opacity: 1;
+  visibility: visible;
+}
+
+.slider-card:hover .slider-card__info,
+.slider-card:hover .slider-card__desc {
+  opacity: 0;
+  visibility: hidden;
 }
 
 @media screen and (max-width: 1440px) {
